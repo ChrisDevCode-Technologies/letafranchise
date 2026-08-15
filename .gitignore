@@ -12,6 +12,11 @@
 /.phpunit.cache/
 .phpunit.result.cache
 
+# Next.js
+/.next/
+/node_modules/
+/next-starter/
+
 # PHP runtime artifacts
 *.log
 *.pid
@@ -27,3 +32,4 @@
 *.swp
 *.swo
 *~
+node_modules

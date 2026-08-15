@@ -1,0 +1,21 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { PrelineScriptWrapper } from "@/components/PrelineScriptWrapper";
+
+export const metadata: Metadata = {
+  title: "LetaFranchise | Entertainment & Events",
+  description:
+    "LetaFranchise creates live entertainment experiences worth remembering.",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <PrelineScriptWrapper />
+      </body>
+    </html>
+  );
+}
