@@ -1,0 +1,29 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# PHP dependencies and tooling
+/vendor/
+/.phpunit.cache/
+.phpunit.result.cache
+
+# PHP runtime artifacts
+*.log
+*.pid
+*.cache
+/sessions/
+
+# Editor and IDE settings
+.idea/
+.vscode/
+*.code-workspace
+
+# Temporary files
+*.swp
+*.swo
+*~
