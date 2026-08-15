@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
-import { PageHero } from "@/components/page-hero";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { PageHero } from "@/components/PageHero";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 
 const services = [
   ["Music events", "Concert programming, artist curation, production, and an atmosphere that carries all night.", "/images/musical.jpg"],

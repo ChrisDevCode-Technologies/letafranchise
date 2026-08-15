@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Check, Handshake, MapPin, Megaphone, PhoneCall, Sparkles, UsersRound } from "lucide-react";
-import { LandingContactForm } from "@/components/landing-contact-form";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { LandingContactForm } from "@/components/LandingContactForm";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 
 const partners = ["OCEAN FEST", "THE GRAND STAGE", "PULSE", "CITY ARTS", "AFTER HOURS"];
 const stories = [

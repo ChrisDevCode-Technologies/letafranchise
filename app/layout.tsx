@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
-import { PrelineScriptWrapper } from "@/components/preline-script-wrapper";
+import { PrelineScriptWrapper } from "@/components/PrelineScriptWrapper";
 
 export const metadata: Metadata = {
   title: "LetaFranchise | Entertainment & Events",

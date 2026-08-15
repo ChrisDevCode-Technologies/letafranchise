@@ -1,7 +1,7 @@
 import { ArrowRight, Mail, Phone } from "lucide-react";
-import { PageHero } from "@/components/page-hero";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { PageHero } from "@/components/PageHero";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 
 const questions = [
   ["What should I include?", "Tell us what you are planning, where it will happen, the kind of feeling you want to create, and any date or audience details you already know."],
