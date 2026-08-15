@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 import { PrelineScriptWrapper } from "@/components/preline-script-wrapper";
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
     "LetaFranchise creates live entertainment experiences worth remembering.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
       <body>

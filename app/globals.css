@@ -6,6 +6,19 @@
 @plugin "@tailwindcss/forms";
 @source "../node_modules/preline/dist/*.js";
 
+@theme {
+	--spacing-15: 3.75rem;
+	--spacing-18: 4.5rem;
+	--spacing-22: 5.5rem;
+	--spacing-30: 7.5rem;
+	--spacing-46: 11.5rem;
+	--spacing-55: 13.75rem;
+	--spacing-104: 26rem;
+	--spacing-105: 26.25rem;
+	--spacing-150: 37.5rem;
+	--spacing-275: 68.75rem;
+}
+
 :root {
 	--canvas: #11120f;
 	--surface: #191a16;
