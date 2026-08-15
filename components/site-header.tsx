@@ -1,0 +1,49 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, CalendarDays, ChevronDown, FileText, Menu, Megaphone, X } from "lucide-react";
+import { useState } from "react";
+
+const companyLinks = [["About", "/#approach"], ["Services", "/services"], ["Careers", "/contact"], ["Career details", "/contact"], ["Apply to collaborate", "/contact"]];
+const storyLinks = [["Case studies", "/gallery"], ["Story details", "/events"]];
+const newsLinks = [["Latest news", "/events"], ["News details", "/gallery"]];
+const buildLinks = [["Event design", "/services"], ["Talent programming", "/services"], ["Production", "/services"]];
+const resourceLinks = [["Event calendar", "/events"], ["Gallery", "/gallery"]];
+
+export function SiteHeader() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <header className="sticky top-4 z-50 mx-auto w-full max-w-5xl px-3">
+      <nav className="relative flex min-h-15 items-center justify-between rounded-[26px] border border-white/10 bg-[#191a16]/95 px-4 py-2 text-[#f3f2eb] shadow-2xl shadow-black/20 backdrop-blur" aria-label="Main navigation">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="LetaFranchise home">
+          <Image src="/images/leta.png" width={38} height={38} alt="" className="size-9 object-contain" />
+          <span className="font-display text-lg font-bold">LetaFranchise</span>
+        </Link>
+        <div className="hidden items-center gap-1 lg:flex">
+          <Link href="/" className="rounded-full px-3 py-2 text-sm text-white/70 transition hover:text-white">Home</Link>
+          <details className="group relative"><summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm text-white/70 transition hover:text-white"><span>Company</span><ChevronDown className="size-3.5 transition group-open:rotate-180" /></summary><div className="absolute left-0 top-full mt-3 w-52 rounded-2xl border-4 border-[#292a25] bg-[#20211d] p-3 shadow-xl shadow-black/35">{companyLinks.map(([label, href]) => <Link key={label} href={href} className="block rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/7 hover:text-white">{label}</Link>)}</div></details>
+          <details className="group relative"><summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm text-white/70 transition hover:text-white"><span>Stories</span><ChevronDown className="size-3.5 transition group-open:rotate-180" /></summary><div className="absolute left-0 top-full mt-3 w-48 rounded-2xl border-4 border-[#292a25] bg-[#20211d] p-3 shadow-xl shadow-black/35">{storyLinks.map(([label, href]) => <Link key={label} href={href} className="block rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/7 hover:text-white">{label}</Link>)}</div></details>
+          <details className="group relative"><summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm text-white/70 transition hover:text-white"><span>News</span><ChevronDown className="size-3.5 transition group-open:rotate-180" /></summary><div className="absolute left-0 top-full mt-3 w-48 rounded-2xl border-4 border-[#292a25] bg-[#20211d] p-3 shadow-xl shadow-black/35">{newsLinks.map(([label, href]) => <Link key={label} href={href} className="block rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/7 hover:text-white">{label}</Link>)}</div></details>
+          <details className="group relative"><summary className="flex cursor-pointer list-none items-center gap-1 rounded-full px-3 py-2 text-sm text-white/70 transition hover:text-white"><span>Product</span><ChevronDown className="size-3.5 transition group-open:rotate-180" /></summary><div className="absolute right-0 top-full mt-3 w-150 overflow-hidden rounded-2xl border-4 border-[#292a25] bg-[#20211d] shadow-xl shadow-black/35"><div className="grid grid-cols-2 gap-px bg-[#292a25]"><div className="bg-[#1a1b17] p-5"><Link href="/services" className="flex items-center justify-between text-sm font-semibold text-white hover:text-[#e9b534]">Build <ArrowRight className="size-4" /></Link><ul className="mt-4 divide-y divide-white/8">{buildLinks.map(([label, href]) => <li key={label}><Link href={href} className="flex items-center justify-between py-2.5 text-sm text-white/65 hover:text-white"><span className="flex items-center gap-2"><span className="size-1 rounded-full bg-[#e9b534]" />{label}</span><ArrowRight className="size-3.5" /></Link></li>)}</ul></div><div className="bg-[#1a1b17] p-5"><Link href="/events" className="flex items-center justify-between text-sm font-semibold text-white hover:text-[#e9b534]">Resources <ArrowRight className="size-4" /></Link><ul className="mt-4 divide-y divide-white/8">{resourceLinks.map(([label, href]) => <li key={label}><Link href={href} className="flex items-center justify-between py-2.5 text-sm text-white/65 hover:text-white"><span className="flex items-center gap-2"><span className="size-1 rounded-full bg-[#e9b534]" />{label}</span><ArrowRight className="size-3.5" /></Link></li>)}</ul></div></div><div className="flex items-center justify-between gap-4 p-3"><Link href="/events" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-[#e9b534]"><CalendarDays className="size-4" /> Sessions 2026 - view the calendar</Link><Link href="/" className="rounded-full px-3 py-1.5 text-sm text-[#e9b534] hover:bg-white/7">Changelog</Link></div></div></details>
+          <Link href="/contact" className="ml-2 rounded-full border border-[#f1bd38] bg-[#e9b534] px-4 py-2 text-sm font-semibold text-[#17150d] transition hover:bg-[#f4cc68]">Plan an event</Link>
+        </div>
+        <button type="button" onClick={() => setIsMenuOpen((open) => !open)} className="inline-flex size-9 items-center justify-center rounded-full border border-white/12 bg-[#252620] lg:hidden" aria-controls="mobile-navigation" aria-expanded={isMenuOpen} aria-label="Toggle navigation">
+          {isMenuOpen ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
+        </button>
+      </nav>
+      <div id="mobile-navigation" className={`${isMenuOpen ? "block" : "hidden"} mt-2 overflow-hidden rounded-[26px] border border-white/10 bg-[#191a16] shadow-2xl shadow-black/25 lg:hidden`}>
+        <div className="space-y-1 p-5">
+          <Link href="/" onClick={() => setIsMenuOpen(false)} className="block rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/7">Home</Link>
+          <details className="rounded-xl border border-white/8 px-3 py-2"><summary className="flex cursor-pointer list-none items-center justify-between text-sm text-white/85">Company <ChevronDown className="size-4" /></summary><div className="mt-2 space-y-1">{companyLinks.map(([label, href]) => <Link key={label} href={href} onClick={() => setIsMenuOpen(false)} className="block rounded-lg px-2 py-1.5 text-sm text-white/60 hover:bg-white/7 hover:text-white">{label}</Link>)}</div></details>
+          <details className="rounded-xl border border-white/8 px-3 py-2"><summary className="flex cursor-pointer list-none items-center justify-between text-sm text-white/85">Stories <ChevronDown className="size-4" /></summary><div className="mt-2 space-y-1">{storyLinks.map(([label, href]) => <Link key={label} href={href} onClick={() => setIsMenuOpen(false)} className="block rounded-lg px-2 py-1.5 text-sm text-white/60 hover:bg-white/7 hover:text-white">{label}</Link>)}</div></details>
+          <details className="rounded-xl border border-white/8 px-3 py-2"><summary className="flex cursor-pointer list-none items-center justify-between text-sm text-white/85">News <ChevronDown className="size-4" /></summary><div className="mt-2 space-y-1">{newsLinks.map(([label, href]) => <Link key={label} href={href} onClick={() => setIsMenuOpen(false)} className="block rounded-lg px-2 py-1.5 text-sm text-white/60 hover:bg-white/7 hover:text-white">{label}</Link>)}</div></details>
+          <details className="rounded-xl border border-white/8 px-3 py-2"><summary className="flex cursor-pointer list-none items-center justify-between text-sm text-white/85">Product <ChevronDown className="size-4" /></summary><div className="mt-3 grid gap-4 text-sm"><div><p className="font-semibold text-[#e9b534]">Build</p>{buildLinks.map(([label, href]) => <Link key={label} href={href} onClick={() => setIsMenuOpen(false)} className="mt-1 block px-2 py-1.5 text-white/60 hover:text-white">{label}</Link>)}</div><div><p className="font-semibold text-[#e9b534]">Resources</p>{resourceLinks.map(([label, href]) => <Link key={label} href={href} onClick={() => setIsMenuOpen(false)} className="mt-1 block px-2 py-1.5 text-white/60 hover:text-white">{label}</Link>)}</div><Link href="/events" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 px-2 py-1.5 text-white/60 hover:text-white"><CalendarDays className="size-4" /> Sessions 2026</Link><Link href="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 px-2 py-1.5 text-white/60 hover:text-white"><FileText className="size-4" /> Changelog</Link></div></details>
+          <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="block rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/7"><span className="inline-flex items-center gap-2"><Megaphone className="size-4" /> Contact</span></Link>
+          <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="mt-3 inline-block rounded-full bg-[#e9b534] px-4 py-2.5 text-sm font-semibold text-[#17150d]">Plan an event</Link>
+        </div>
+      </div>
+    </header>
+  );
+}
